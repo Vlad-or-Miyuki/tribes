@@ -1,7 +1,8 @@
 import { createObject, addItem } from '../practice/utility.js';
 
 createObject();
-createObject();
+// createObject();
+// createObject();
 addItem();
 
 // import Apache from '../practice/classes/apache.js';

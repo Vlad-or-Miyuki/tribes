@@ -13,6 +13,15 @@ const getObject = () => JSON.parse(fs.readFileSync(getPath(), 'utf-8'));
 
 const updateJSON = (dataToUpdate) => fs.writeFileSync(getPath(), JSON.stringify(dataToUpdate, null, 2), 'utf-8');
 
+const classesConstructor = (key, name) => {
+  const classes = {
+    0: new Apache(name),
+    1: new Redneck(name),
+    2: new Tool(name),
+    3: new Weapon(name),
+  };
+}
+
 const setObject = (object) => {
   const listOfObjects = getObject();
   if (['apache', 'redneck'].includes(object.className)) {
@@ -22,6 +31,7 @@ const setObject = (object) => {
   }
   updateJSON(listOfObjects);
 };
+
 // ф-ция, создающая новый объект класса и сохраняющая его в p.json
 const createObject = () => {
   const classes = ['Apache', 'Redneck', 'Tool', 'Weapon'];
@@ -99,21 +109,23 @@ const backToClass = (nameToFind) => {
   const jsonObject = filtered.at(0);
   // [{}] -> {}
   // преоразовываем в объект класса
-  let classObject;
-  switch (jsonObject.className) {
-    case 'apache':
-      classObject = new Apache(nameToFind);
-      break;
-    case 'redneck':
-      classObject = new Redneck(nameToFind);
-      break;
-    case 'weapon':
-      classObject = new Weapon(nameToFind);
-      break;
-    default:
-      classObject = new Tool(nameToFind);
-      break;
-  }
+  const key = ['apache', 'redneck', 'tool', 'weapon',].indexOf(jsonObject.className);
+
+  const classObject = classesConstructor(key, nameToFind)
+  // switch (jsonObject.className) {
+  //   case 'apache':
+  //     classObject = new Apache(nameToFind);
+  //     break;
+  //   case 'redneck':
+  //     classObject = new Redneck(nameToFind);
+  //     break;
+  //   case 'weapon':
+  //     classObject = new Weapon(nameToFind);
+  //     break;
+  //   default:
+  //     classObject = new Tool(nameToFind);
+  //     break;
+  // }
   // указываем конкретные значения ключей
   const entries = Object.entries(jsonObject);
   // [[key, v], [key2, v2]...]
@@ -133,5 +145,5 @@ const backToClass = (nameToFind) => {
 };
 
 export {
-  setObject, deleteObject, updateObject, backToClass, createObject, addItem,
+  setObject, updateObject, backToClass, createObject, addItem, deleteObject
 };

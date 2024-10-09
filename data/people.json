@@ -1,45 +1,22 @@
 {
   "alive": [
     {
-      "name": "Nikita",
-      "age": 61,
-      "health": 11,
+      "name": "Лёня",
+      "age": 80,
+      "health": 26,
       "tools": [],
       "damage": 7,
       "className": "apache",
-      "farmingSkill": 97
+      "farmingSkill": 93
     },
     {
-      "name": "Maxim",
-      "age": 88,
-      "health": 36,
-      "tools": [
-        {
-          "name": "motiga",
-          "durability": 100,
-          "damage": 5,
-          "className": "tool"
-        }
-      ],
+      "name": "Лёня",
+      "age": 99,
+      "health": 31,
+      "tools": [],
       "damage": 7,
       "className": "apache",
-      "farmingSkill": 73
-    },
-    {
-      "name": "Абобус",
-      "age": 64,
-      "health": 39,
-      "tools": [
-        {
-          "name": "Кирка",
-          "durability": 100,
-          "damage": 5,
-          "className": "tool"
-        }
-      ],
-      "damage": 7,
-      "className": "apache",
-      "farmingSkill": 98
+      "farmingSkill": 69
     }
   ],
   "item": [
